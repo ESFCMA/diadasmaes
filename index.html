@@ -6,31 +6,28 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #fcefee;
+      background-color: #fcefee;
       display: flex;
       align-items: center;
       justify-content: center;
       height: 100vh;
       margin: 0;
     }
-
     .box-container {
       position: relative;
       width: 220px;
       height: 220px;
       cursor: pointer;
     }
-
     .gift-box {
       width: 100%;
       height: 100%;
-      background: #ffffff;
-      border-radius: 10px;
+      background-color: #ffffff;
       border: 2px solid #cc0000;
+      border-radius: 10px;
       position: relative;
       transition: transform 1s ease-in-out;
     }
-
     .gift-box::before {
       content: '';
       position: absolute;
@@ -38,13 +35,12 @@
       left: 45%;
       width: 10%;
       height: 100%;
-      background: #cc0000;
+      background-color: #cc0000;
     }
-
     .gift-lid {
       width: 100%;
       height: 40%;
-      background: #cc0000;
+      background-color: #cc0000;
       position: absolute;
       top: 0;
       left: 0;
@@ -52,14 +48,13 @@
       transition: top 0.8s ease, transform 0.8s ease;
       z-index: 2;
     }
-
     .message {
       position: absolute;
       top: 100px;
       left: 50%;
       transform: translateX(-50%);
       width: 300px;
-      background: white;
+      background-color: #ffffff;
       padding: 20px;
       border-radius: 15px;
       box-shadow: 0 2px 15px rgba(0,0,0,0.2);
@@ -67,32 +62,26 @@
       display: none;
       z-index: 3;
     }
-
     .message h2 {
       font-family: "Brush Script MT", cursive;
       color: deeppink;
       font-size: 24px;
-      font-weight: bold;
       margin-bottom: 10px;
     }
-
     .message p {
-      color: #333;
+      color: #333333;
       font-size: 16px;
       margin-bottom: 10px;
     }
-
     .message img {
       width: 100%;
       border-radius: 10px;
       margin-top: 10px;
     }
-
     .opened .gift-lid {
       top: -60px;
       transform: rotate(-20deg);
     }
-
     .opened .message {
       display: block;
     }
@@ -106,7 +95,7 @@
   <div class="message">
     <h2>Feliz Dia das Mães!</h2>
     <p>Para esse dia especial, seus filhos lhe presenteiam com um dia exclusivo no Buddha Spa.</p>
-    <p>Te amamos muito! Aproveite esse momento - Rebeca, Raquel, Dudu e Gabriel ❤ </p>
+    <p>Te amamos muito! Aproveite esse momento - Rebeca, Raquel, Dudu e Gabriel ❤</p>
     <img src="https://www.buddhaspa.com.br/wp-content/uploads/2023/08/banner_home_02-scaled.jpg" alt="Foto do Espaço Buddha Spa">
   </div>
 </div>
