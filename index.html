@@ -69,4 +69,59 @@
       padding: 20px;
       border-radius: 15px;
       box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-      text-align
+      text-align: center;
+      display: none;
+      z-index: 3;
+    }
+
+    .message h2 {
+      font-family: "Brush Script MT", cursive;
+      color: deeppink;
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .message p {
+      color: #333333;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .message img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    .opened .gift-lid {
+      transform: rotateX(120deg);
+      top: -60px;
+    }
+
+    .opened .message {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box-container" onclick="openGift()">
+  <div class="gift-lid"></div>
+  <div class="gift-box"></div>
+  <div class="message">
+    <h2>Feliz Dia das Mães!</h2>
+    <p>Para esse dia especial, seus filhos lhe presenteiam com um dia exclusivo no Buddha Spa.</p>
+    <p>Te amamos muito! Aproveite esse momento - Rebeca, Raquel, Dudu e Gabriel ❤</p>
+    <img src="./A.jpg" alt="Foto do Espaço Buddha Spa">
+  </div>
+</div>
+
+<script>
+  function openGift() {
+    const box = document.querySelector('.box-container');
+    box.classList.add('opened');
+  }
+</script>
+
+</body>
+</html>
