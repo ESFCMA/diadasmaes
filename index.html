@@ -5,33 +5,35 @@
   <title>Feliz Dia das Mães!</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #fcefee;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #fcefee, #f8d7e9);
       display: flex;
       align-items: center;
       justify-content: center;
       height: 100vh;
       margin: 0;
+      perspective: 1200px;
     }
 
     .box-container {
       position: relative;
-      width: 280px;
-      height: 180px;
+      width: 300px;
+      height: 200px;
       cursor: pointer;
+      transform-style: preserve-3d;
     }
 
     .gift-box {
       width: 100%;
       height: 100%;
-      background-color: #2e2e2e; /* cor escura da caixa */
-      border-radius: 10px;
+      background: linear-gradient(145deg, #2f2f2f, #1f1f1f);
+      border-radius: 12px;
       position: relative;
-      transition: transform 1s ease-in-out;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
     }
 
-    /* Fita vertical */
+    /* Fita marrom vertical */
     .gift-box::before {
       content: '';
       position: absolute;
@@ -40,16 +42,16 @@
       transform: translateX(-50%);
       width: 20px;
       height: 100%;
-      background-color: #8b4513; /* marrom */
+      background-color: #8b4513;
       z-index: 1;
     }
 
-    /* Fita horizontal */
+    /* Fita marrom horizontal */
     .gift-box::after {
       content: '';
       position: absolute;
-      left: 0;
       top: 50%;
+      left: 0;
       transform: translateY(-50%);
       width: 100%;
       height: 20px;
@@ -57,36 +59,38 @@
       z-index: 1;
     }
 
+    /* Laço no topo */
+    .ribbon-bow {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 40px;
+      background: radial-gradient(circle at center, #a0522d, #5c2e00);
+      border-radius: 40% 40% 50% 50%;
+      z-index: 3;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    /* Tampa */
     .gift-lid {
       width: 100%;
       height: 40%;
-      background-color: #2e2e2e;
+      background: linear-gradient(145deg, #2f2f2f, #1f1f1f);
       position: absolute;
       top: 0;
       left: 0;
-      border-radius: 10px 10px 0 0;
-      transition: top 0.8s ease, transform 0.8s ease;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      z-index: 2;
-    }
-
-    /* Laço marrom estilizado */
-    .ribbon-bow {
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 40px;
-      background: radial-gradient(circle at center, #a0522d, #5c2e00);
-      border-radius: 50%;
-      z-index: 3;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      border-radius: 12px 12px 0 0;
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+      transition: transform 1s ease, top 1s ease;
+      z-index: 4;
+      transform-origin: bottom center;
     }
 
     .message {
       position: absolute;
-      top: 200px;
+      top: 220px;
       left: 50%;
       transform: translateX(-50%);
       width: 320px;
@@ -96,7 +100,7 @@
       box-shadow: 0 8px 25px rgba(0,0,0,0.25);
       text-align: center;
       display: none;
-      z-index: 4;
+      z-index: 5;
     }
 
     .message h2 {
@@ -118,9 +122,10 @@
       margin-top: 10px;
     }
 
+    /* Abertura */
     .opened .gift-lid {
-      top: -80px;
-      transform: rotate(-20deg);
+      top: -100px;
+      transform: rotateX(140deg);
     }
 
     .opened .message {
@@ -130,6 +135,7 @@
 </head>
 <body>
 
+<!-- Caixa de presente -->
 <div class="box-container" onclick="openGift()">
   <div class="gift-lid"></div>
   <div class="gift-box">
@@ -143,10 +149,20 @@
   </div>
 </div>
 
+<!-- Áudio do efeito -->
+<audio id="giftSound" preload="auto">
+  <source src="https://cdn.pixabay.com/audio/2022/08/01/audio_894b004f26.mp3" type="audio/mpeg">
+  Seu navegador não suporta áudio.
+</audio>
+
 <script>
   function openGift() {
     const box = document.querySelector('.box-container');
-    box.classList.add('opened');
+    const sound = document.getElementById('giftSound');
+    if (!box.classList.contains('opened')) {
+      box.classList.add('opened');
+      sound.play();
+    }
   }
 </script>
 
