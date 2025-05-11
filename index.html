@@ -12,27 +12,26 @@
       justify-content: center;
       height: 100vh;
       margin: 0;
-      perspective: 1200px;
     }
 
     .box-container {
       position: relative;
       width: 280px;
       height: 180px;
-      transform-style: preserve-3d;
       cursor: pointer;
     }
 
     .gift-box {
       width: 100%;
       height: 100%;
-      background-color: #2e2e2e;
-      border-radius: 6px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      background-color: #2e2e2e; /* cor escura da caixa */
+      border-radius: 10px;
       position: relative;
-      overflow: hidden;
+      transition: transform 1s ease-in-out;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
     }
 
+    /* Fita vertical */
     .gift-box::before {
       content: '';
       position: absolute;
@@ -41,33 +40,21 @@
       transform: translateX(-50%);
       width: 20px;
       height: 100%;
-      background-color: #8b4513;
+      background-color: #8b4513; /* marrom */
       z-index: 1;
     }
 
+    /* Fita horizontal */
     .gift-box::after {
       content: '';
       position: absolute;
-      top: 50%;
       left: 0;
+      top: 50%;
+      transform: translateY(-50%);
       width: 100%;
       height: 20px;
       background-color: #8b4513;
-      transform: translateY(-50%);
       z-index: 1;
-    }
-
-    .ribbon-bow {
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 40px;
-      background: radial-gradient(circle at center, #a0522d, #5c2e00);
-      border-radius: 50%;
-      z-index: 2;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
 
     .gift-lid {
@@ -77,11 +64,24 @@
       position: absolute;
       top: 0;
       left: 0;
-      border-radius: 6px 6px 0 0;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-      transform-origin: bottom center;
-      transition: transform 1s ease, top 1s ease;
+      border-radius: 10px 10px 0 0;
+      transition: top 0.8s ease, transform 0.8s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      z-index: 2;
+    }
+
+    /* Laço marrom estilizado */
+    .ribbon-bow {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 40px;
+      background: radial-gradient(circle at center, #a0522d, #5c2e00);
+      border-radius: 50%;
       z-index: 3;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
 
     .message {
@@ -119,8 +119,8 @@
     }
 
     .opened .gift-lid {
-      transform: rotateX(140deg);
       top: -80px;
+      transform: rotate(-20deg);
     }
 
     .opened .message {
